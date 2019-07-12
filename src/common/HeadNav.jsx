@@ -3,8 +3,6 @@ import { Menu, Icon } from 'antd';
 import './HeadNav.less'
 import {Link} from 'react-router-dom'
 
-const { SubMenu } = Menu;
-
 class HeadNav extends Component {
   state = {
     current: 'home',
