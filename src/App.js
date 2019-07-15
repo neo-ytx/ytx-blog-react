@@ -1,23 +1,35 @@
 import React from 'react';
 import './App.css';
-import RouterWrap from './router'
-import HeadNav from './common/HeadNav'
-import {BrowserRouter as Router,HashRouter, Route, Switch} from 'react-router-dom'
-import Login from './components/login/Login'
+import {BrowserRouter as Router} from 'react-router-dom'
+import HeadNav from './layouts/HeadNav'
+import CusSider from './layouts/CusSider'
+import ContentRouter from './layouts/ContentRouter'
+import { Layout } from 'antd';
+
+const { Header, Content, Footer } = Layout;
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <Router>
-          <HeadNav />
-          <HashRouter>
-              <Switch>
-                  <Route path="/" component={Login}  exact />
-              </Switch>
-          </HashRouter>
-        </Router>
-      </header>
+      <Router>
+        <Layout className="layout">
+          <Header theme="light">
+            <HeadNav />
+          </Header>
+          <Layout>
+            <CusSider />
+            <Content style={{ padding: '0 50px' }}>
+              <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
+                <p>
+                啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+                </p>
+                <ContentRouter />
+              </div>
+            </Content>
+          </Layout>
+          <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+        </Layout>
+      </Router>
     </div>
   );
 }
